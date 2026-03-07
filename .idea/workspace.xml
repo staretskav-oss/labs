@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bfe8c47-bd86-4ebf-a401-0aa417cf086c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lab2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Merging master",
     "last_opened_file_path": "C:/Users/LENOVO/PycharmProjects/lab1_spline/Lab1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,7 +74,7 @@
       <updated>1772903834442</updated>
       <workItem from="1772903835619" duration="6269000" />
       <workItem from="1772910309783" duration="3611000" />
-      <workItem from="1772916023957" duration="654000" />
+      <workItem from="1772916023957" duration="1032000" />
     </task>
     <servers />
   </component>
