@@ -2,10 +2,6 @@ import requests
 import numpy as np
 import matplotlib.pyplot as plt
 
-# =====================================================
-# 1. Запит до API висот
-# =====================================================
-
 url = "https://api.open-elevation.com/api/v1/lookup?locations=" \
       "48.164214,24.536044|48.164983,24.534836|48.165605,24.534068|" \
       "48.166228,24.532915|48.166777,24.531927|48.167326,24.530884|" \
@@ -21,27 +17,17 @@ data = response.json()
 results = data["results"]
 print("Кількість вузлів:", len(results))
 
-# =====================================================
-# 2. Табуляція
-# =====================================================
-
+print("\nТабуляція вузлів:4")
 print("\n№ | Latitude | Longitude | Elevation")
 
 for i, p in enumerate(results):
     print(i, "|", p["latitude"], "|", p["longitude"], "|", p["elevation"])
-
-# =====================================================
-# 3. Запис у файл
-# =====================================================
 
 with open("nodes.txt", "w") as f:
     f.write("№ | Latitude | Longitude | Elevation\n")
     for i, p in enumerate(results):
         f.write(f"{i} | {p['latitude']} | {p['longitude']} | {p['elevation']}\n")
 
-# =====================================================
-# 4. Кумулятивна відстань
-# =====================================================
 
 def haversine(lat1, lon1, lat2, lon2):
     R = 6371000
@@ -198,6 +184,31 @@ plt.grid(True)
 plt.legend()
 
 plt.show()
+# =====================================================
+# 9. Графік похибки
+# =====================================================
+
+# Порівнюємо сплайн із вихідними даними на густій сітці
+y_real_interp = np.interp(xx, distances, elevations)
+error = np.abs(y_real_interp - yy)
+
+plt.figure(figsize=(10,6))
+
+plt.plot(xx, error, label="Абсолютна похибка |y_real - y_spline|")
+
+plt.xlabel("Distance (m)")
+plt.ylabel("Error (m)")
+plt.title("Графік похибки кубічного сплайна")
+
+plt.grid(True)
+plt.legend()
+
+plt.show()
+
+print("\n=== Оцінка похибки ===")
+print("Максимальна похибка (м):", np.max(error))
+print("Середня похибка (м):", np.mean(error))
+print("RMSE (м):", np.sqrt(np.mean(error**2)))
 
 # =====================================================
 # ДОДАТКОВЕ ЗАВДАННЯ

@@ -15,17 +15,17 @@ def divided_differences(x, y):
 
     return coef
 
-
+#ф-цію обч знач інтерполяційного многочлена н
 def newton_polynomial(x_data, coef, x):
     n = len(x_data) - 1
     p = coef[0][n]
-
+#будує многочлен н
     for k in range(1,n+1):
         p = coef[0][n-k] + (x-x_data[n-k])*p
 
     return p
 
-
+#виклик ф-ції і будується табл р р
 coef = divided_differences(x,y)
 
 cpu = newton_polynomial(x,coef,600)
@@ -34,7 +34,7 @@ print("CPU при 600 RPS =", cpu)
 
 x_plot = np.linspace(50,800,100)
 y_plot = [newton_polynomial(x,coef,i) for i in x_plot]
-
+#експериментальні т і крива н
 plt.scatter(x,y)
 plt.plot(x_plot,y_plot)
 
